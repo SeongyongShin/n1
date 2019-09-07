@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- db 연결 커넥터 설정 -->
+	<bean id = "hikariConfig" class = "com.zaxxer.hikari.HikariConfig">
+		<property name="driverClassName" value = "com.mysql.cj.jdbc.Driver"/>
+		<property name="jdbcUrl" value = "jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Seoul"/>
+		<property name="username" value = "spring"/>
+		<property name="password" value = "spring"/>
+	</bean>
+	<!-- 위에 만들어놓은 것을 데이터소스로 만드는것 -->
+	<bean id = "ds" class = "com.zaxxer.hikari.HikariDataSource">
+		<constructor-arg ref = "hikariConfig"/>
+	</bean>
+	
+		<!-- mybatis 관련 설정 -->
+	<!-- 핵심객체인 마이바티스 세션팩토리라는 객체를 빈으로 생성 -->
+	<bean id = "sqlSessionFactory" class = "org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref = "ds"/>
+	</bean>
+	<!-- 마이바티스 스캔 -->
+	<!-- 해당 패키지를 스캔해서 xml을 파일을 bean 으로 생성하라는 명령 -->
+	<mybatis-spring:scan base-package="com.zerock.board.mapper"/>
+</beans>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.zerock.board.mapper.BoardMapper">
+  <!--
+   1. mapper namespace = "구현 인터페이스의 경로"
+   2. root.xml -> 마이바티스 스캔으로 패키지스캔명령
+   3. <insert> 태그의 id 값은 추상 메서드의 이름이 들어간다
+   4. service에서 멤버변수로 BoardMapper선언 후 자동주입
+   5. insert into tbl_board(title,content,writer) values(#{},#{},#{})
+   -->
+   <insert id="regist">
+		insert into tbl_board(title,content,writer) values(#{title},#{content},#{writer});
+   </insert>
+   
+ <!--   
+ 	<select id = "getList" resultType = "com.zerock.command.BoardVO"> resultType 는 쓰면 명시적이다.
+   		select * from tbl_board
+    </select>
+  -->
+  
+   <select id = "getList" resultType = "com.zerock.command.BoardVO"> 
+   		select * from tbl_board order by num desc limit #{pageStart}, #{count};
+   </select>
+   
+   <select id = "getContent" resultType = "com.zerock.command.BoardVO">
+   	select * from tbl_board where num = #{num};
+   </select>
+   
+   <select id = "getTotal" resultType="int">
+   		select count(*) as total from tbl_board;
+   </select>
+   
+   <update id = "updateBoard">
+   	update tbl_board set title=#{title},  content=#{content},  writer=#{writer}, updatedate = current_timestamp where num=#{num};
+   </update>
+   
+   <delete id = 'deleteBoard'>
+   	delete from tbl_board where num=#{num};
+   </delete>
+</mapper>
