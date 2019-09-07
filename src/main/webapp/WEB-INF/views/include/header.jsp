@@ -65,8 +65,8 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Login</h6>
-            <a class="collapse-item" href="############################">회원가입</a>
-            <a class="collapse-item" href="############################">로그인</a>
+            <a class="collapse-item" href="${pageContext.request.contextPath}/member/join">회원가입</a>
+            <a class="collapse-item" href="${pageContext.request.contextPath}/member/login">로그인</a>
             
           </div>
         </div>

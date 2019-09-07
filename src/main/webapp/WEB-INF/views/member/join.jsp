@@ -46,7 +46,7 @@
                     <input type="text" class="form-control form-control-user" placeholder="아이디" name="id" id="id">
                   </div>
                   <div class="col-sm-4">
-                  	<input type="button" class="btn btn-primary btn-user btn-block" value="중복체크">
+                  	<input type="button" class="btn btn-primary btn-user btn-block" value="중복체크" onclick="idCheck()">
                   </div>
                 </div>
                 
@@ -78,7 +78,7 @@
                 <a class="small" href="/MyWeb">메인으로</a><!-- 절대경로 -->
               </div>
               <div class="text-center">
-                <a class="small" href="">로그인</a>
+                <a class="small" href="${pageContext.request.contextPath}/member/login">로그인</a>
               </div>
               <div class="col-lg-3"></div>
             </div>
@@ -91,7 +91,24 @@
   
   <!-- 여기에 스크립트를 작성합니다 -->
   <script type="text/javascript">
-  	
+  	function idCheck(){
+  		var id = $("#id").val();
+  		//alert(id);
+  		if(id.length < 4){
+  			alert("4글자 이상 입력하세요")
+  		}else{
+			//비동기 통신을 사용해서 memberController로 요청을 보냄		
+			
+			$.ajax({
+				type : "post",
+				url : "checkId",
+				data : {"id": id},
+				success : funtion(result){ //ajax 통신에 성공했을 떄 호출될 자바스크립트 함수, result에는 실행결과가 매개변수로 들어감
+					alert(result);
+				}
+			});
+  		}
+  	}
   </script>
   
   
@@ -109,6 +126,5 @@
   <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.min.js"></script>
 
 </body>
-
 </html>
     
