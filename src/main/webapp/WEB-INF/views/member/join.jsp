@@ -86,7 +86,6 @@
         </div>
       </div>
     </div>
-
   </div>
   
   <!-- 여기에 스크립트를 작성합니다 -->
@@ -98,12 +97,11 @@
   			alert("4글자 이상 입력하세요")
   		}else{
 			//비동기 통신을 사용해서 memberController로 요청을 보냄		
-			
 			$.ajax({
 				type : "post",
 				url : "checkId",
 				data : {"id": id},
-				success : funtion(result){ //ajax 통신에 성공했을 떄 호출될 자바스크립트 함수, result에는 실행결과가 매개변수로 들어감
+				success : function(result){ //ajax 통신에 성공했을 떄 호출될 자바스크립트 함수, result에는 실행결과가 매개변수로 들어감
 					alert(result);
 				}
 			});
