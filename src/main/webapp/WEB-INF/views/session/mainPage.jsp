@@ -9,7 +9,7 @@
 <body>
 	<h2> 모두 사용가능한 메인페이지</h2><br>
 	<hr>
-	<a href="">로그인</a>
-	<a href="">마이페이지</a>
+	<a href="loginPage">로그인</a>
+	<a href="myPage">마이페이지</a>
 </body>
 </html>

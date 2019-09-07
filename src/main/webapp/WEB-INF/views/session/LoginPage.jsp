@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form>
+	<form action="sessionLogin" method = "post">
 		id<input type="text" name = "id" size = "10"><br>
 		 pw<input type="password" name = "pw" size = "10">
 		<input type="submit" value = "로그인 ">
