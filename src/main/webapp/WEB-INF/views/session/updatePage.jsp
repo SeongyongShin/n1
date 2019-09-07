@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<a href="updatePage">정보 수정</a>
+	<a href="logout">로그아웃</a>
 </body>
 </html>

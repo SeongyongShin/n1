@@ -15,6 +15,11 @@
 		<level value="info" />
 	</logger>
 	
+	<!-- LogAdvice 클래스를 로그설정으로 선언 -->
+	<logger name="com.zerock.util">
+		<level value="info"/>
+	</logger>
+	
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
 		<level value="info" />

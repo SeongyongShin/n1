@@ -11,5 +11,7 @@
 	<h1>마이페이지</h1><br>
 	${sessionScope.user_id }<br>
 	<h2>(${sessionScope.user_name})</h2>님 환영합니다.
+	<a href="loginPage">정보 수정</a>
+	<a href="logout">로그아웃</a>
 </body>
 </html>

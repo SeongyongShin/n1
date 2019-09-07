@@ -13,5 +13,7 @@
 		<input type="submit" value = "로그인 ">
 		<input type="button" value = "취소">
 	</form>
+	<br>
+	${msg }
 </body>
 </html>
