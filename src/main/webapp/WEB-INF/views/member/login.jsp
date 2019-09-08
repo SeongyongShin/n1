@@ -45,7 +45,7 @@
                   </div>
                   
 
-                  <form class="user" action="" method="post">
+                  <form class="user" action="loginForm" method="post">
                     <!-- 아이디 -->
                     <div class="form-group">
                       <input type="text" class="form-control form-control-user" name="id" placeholder="아이디">
@@ -86,7 +86,13 @@
   
   <!-- 여기에 스크립트를 작성합니다 -->
   <script type="text/javascript">
-  
+  	$(document).ready(function(){
+  		
+  		var msg ="${msg}";
+  		if(msg != ''){
+  			alert(msg);
+  		}
+  	})
   
   </script>
   

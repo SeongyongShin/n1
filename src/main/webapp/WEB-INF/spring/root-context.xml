@@ -27,4 +27,5 @@
 	<!-- 마이바티스 스캔 -->
 	<!-- 해당 패키지를 스캔해서 xml을 파일을 bean 으로 생성하라는 명령 -->
 	<mybatis-spring:scan base-package="com.zerock.board.mapper"/>
+	<mybatis-spring:scan base-package="com.zerock.member.mapper"/>
 </beans>

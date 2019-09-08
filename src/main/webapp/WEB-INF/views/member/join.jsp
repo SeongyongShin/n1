@@ -39,7 +39,7 @@
               
               
               <!-- 자바스크립트(제이쿼리) 를 사용하기전에 input 태그의 id속성을 확인하세요. -->
-              <form class="user" action="" method="post" id="regForm">
+              <form class="user" action="joinForm" method="post" id="regForm">
                 <!-- 아이디 -->
                 <div class="form-group row">
                   <div class="col-sm-8 mb-3 mb-sm-0">
@@ -69,7 +69,7 @@
                   </div>
                 </div>
 				
-				<input type="button" class="btn btn-primary btn-user btn-user btn-block" value="회원가입">
+				<input type="button" class="btn btn-primary btn-user btn-user btn-block" value="회원가입" onclick="joinCheck()">
                
               </form>
                            
@@ -102,9 +102,35 @@
 				url : "checkId",
 				data : {"id": id},
 				success : function(result){ //ajax 통신에 성공했을 떄 호출될 자바스크립트 함수, result에는 실행결과가 매개변수로 들어감
-					alert(result);
+					
+					if(result == 1){
+						alert("이미 존재하는 아이디입니다.");
+					}else{
+						alert("사용가능한 아이디입니다.");
+						$("#id").attr("readonly",true); //attr : 속성, 변경할값 함수는 내부속성을 변경하는 함수
+					}
 				}
 			});
+  		}
+  	}
+  	
+  	//회원가입 체크 
+  	function joinCheck(){
+  		//if($("#id").attr("readonly"))
+  		var a = $("#id").attr("readonly")
+  		var b = $("#name").val().length;
+  		var c = $("#pw").val();
+  		var d = $("#pwCheck").val();
+  		
+  		if(!a){alert("아이디 중복체크를 확인하세요");}
+  		else if(b < 1){alert("이름을 입력하세요");}
+  		else if(c.length < 4 ){alert("비밀번호는 4 글자 이상이어야합니다.");}
+  		else if(c != d){
+  			alert("두 비밀번호가 일치하지 않습니다.");
+  			$("#pwCheck").focus();
+  		}
+  		else if(confirm("회원가입 하시겠습니까?")){ // 확인 : true 아니요 : false
+  			$("#regForm").submit();
   		}
   	}
   </script>
