@@ -89,8 +89,12 @@
   	$(document).ready(function(){
   		
   		var msg ="${msg}";
+  		var check = "${param.check}";// get 방식으로 넘어온값 받기 여기서는 check 라는 이름으로 넘어옴
+  		
   		if(msg != ''){
   			alert(msg);
+  		}else if(check != null){
+  			alert("로그인이 필요한 서비스입니다.");
   		}
   	})
   

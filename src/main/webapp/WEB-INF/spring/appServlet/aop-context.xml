@@ -23,6 +23,7 @@
 		<mapping path="/board/modify"/>
 		<mapping path="/board/update"/>
 		<mapping path="/board/delete"/>
+		<mapping path="/board/register"/>
 		<beans:bean class = "com.zerock.util.BoardInterceptor"/>
 	</interceptor>
 </interceptors>
